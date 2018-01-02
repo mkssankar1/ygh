@@ -1,0 +1,10 @@
+C:\FlexApps\Development\FBSWeb\Flex.BenefitSystem.DataAccess\bin\Debug\Flex.BenefitSystem.DataAccess.dll
+C:\FlexApps\Development\FBSWeb\Flex.BenefitSystem.DataAccess\bin\Debug\Flex.BenefitSystem.DataAccess.pdb
+C:\FlexApps\Development\FBSWeb\Flex.BenefitSystem.DataAccess\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\FlexApps\Development\FBSWeb\Flex.BenefitSystem.DataAccess\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\FlexApps\Development\FBSWeb\Flex.BenefitSystem.DataAccess\bin\Debug\Microsoft.Practices.Unity.dll
+C:\FlexApps\Development\FBSWeb\Flex.BenefitSystem.DataAccess\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\FlexApps\Development\FBSWeb\Flex.BenefitSystem.DataAccess\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+C:\FlexApps\Development\FBSWeb\Flex.BenefitSystem.DataAccess\bin\Debug\Microsoft.Practices.Unity.pdb
+C:\FlexApps\Development\FBSWeb\Flex.BenefitSystem.DataAccess\obj\Debug\Flex.BenefitSystem.DataAccess.dll
+C:\FlexApps\Development\FBSWeb\Flex.BenefitSystem.DataAccess\obj\Debug\Flex.BenefitSystem.DataAccess.pdb

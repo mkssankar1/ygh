@@ -1,0 +1,8 @@
+F:\greenchits\AppServices\Model\bin\Debug\GreenChits.Model.dll
+F:\greenchits\AppServices\Model\bin\Debug\GreenChits.Model.pdb
+F:\greenchits\AppServices\Model\obj\Debug\GreenChits.Model.dll
+F:\greenchits\AppServices\Model\obj\Debug\GreenChits.Model.pdb
+C:\Users\Fstech-28\Desktop\k\green_bck\01_09_2013\greenchits\AppServices\Model\bin\Debug\GreenChits.Model.dll
+C:\Users\Fstech-28\Desktop\k\green_bck\01_09_2013\greenchits\AppServices\Model\bin\Debug\GreenChits.Model.pdb
+C:\Users\Fstech-28\Desktop\k\green_bck\01_09_2013\greenchits\AppServices\Model\obj\Debug\GreenChits.Model.dll
+C:\Users\Fstech-28\Desktop\k\green_bck\01_09_2013\greenchits\AppServices\Model\obj\Debug\GreenChits.Model.pdb
