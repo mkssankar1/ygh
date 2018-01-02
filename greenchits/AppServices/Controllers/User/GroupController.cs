@@ -23,9 +23,8 @@ namespace GreenChits.Controllers
                     DataParameter.GetSqlParam(DbGroupDetails.GroupName.ToString(),  SqlDbType.VarChar, 50, objGroup.GroupName,ParameterDirection.Input),
                     DataParameter.GetSqlParam(DbGroupDetails.Desc.ToString(),  SqlDbType.VarChar, 500, objGroup.Desc,ParameterDirection.Input),
                     DataParameter.GetSqlParam(DbGroupDetails.CreatedBy.ToString(),  SqlDbType.Int, 11, objGroup.CreatedUser,ParameterDirection.Input),
+                    DataParameter.GetSqlParam("RETURN_VALUE",    SqlDbType.Int, 0,ParameterDirection.Output),
                 };
-
-
             try
             {
                 return new Status() { StatusId = CommonDBFunctions.ExecuteNonQuery("spGroupInsert", parameter,true), MsgDesc = AppConstant.SuccessMsg };
@@ -36,6 +35,70 @@ namespace GreenChits.Controllers
             }
         }
 
+        public Status CheckGroup(string group)
+        {
+            DbParameter[] parameter =
+                {
+                    DataParameter.GetSqlParam(DbGroupDetails.GroupName.ToString(),  SqlDbType.VarChar, 50, group,ParameterDirection.Input),
+                    DataParameter.GetSqlParam("RETURN_VALUE",    SqlDbType.Int, 0,ParameterDirection.Output),
+                };
+            try
+            {
+                return new Status() { StatusId = CommonDBFunctions.ExecuteNonQuery("spGroupCheck", parameter, true), MsgDesc = AppConstant.SuccessMsg };
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public GroupList GetGroup(int userId)
+        {
+            DbParameter[] parameter =
+                {
+                    DataParameter.GetSqlParam(dbUserEnity.CustomerID.ToString(),  SqlDbType.Int, 50, userId,ParameterDirection.Input),
+                };
+            try
+            {
+                GroupList objGroupList = new GroupList();
+                var drUserDetails = CommonDBFunctions.ExecuteDataSet(spUser.spUserLogin.ToString(), parameter);
+                if (drUserDetails.Tables.Count > 0)
+                {
+                  //  new Status() { StatusId = AppConstant.Success, MsgDesc = success };
+                    if (drUserDetails.Tables.Count == 1)
+                    {
+                        if (drUserDetails.Tables[1].Rows.Count > 0)
+                        {
+                            objGroupList.status = new Status() { StatusId = AppConstant.Success, MsgDesc = AppConstant.SuccessMsg };
+                        }
+                        else
+                        {
+                            objGroupList.status = new Status() { StatusId = AppConstant.Information, MsgDesc = "No record" };
+                        }
+                        foreach (DataRow dr in drUserDetails.Tables[1].Rows)
+                        {
+                            GroupDetails objGroup = new GroupDetails();
+                            objGroup.GroupName = dr[dbUserEnity.FirstName.ToString()].ToString();
+                            objGroup.StatusMsg = dr[dbUserEnity.FirstName.ToString()].ToString();
+                            objGroup.Desc = dr[dbUserEnity.FirstName.ToString()].ToString();
+                            objGroup.CreatedUser = dr[dbUserEnity.FirstName.ToString()].ToString();
+                           // objGroup.Status = dr[dbUserEnity.FirstName.ToString()].ToString();
+                            objGroup.CreatedDate = Convert.ToDateTime(dr[dbUserEnity.LastLogin.ToString()].ToString());
+                            objGroup.GroupID= UtilCipher.Encrypt(dr[dbUserEnity.CustomerID.ToString()].ToString());
+                            objGroup.IsAdmin = Convert.ToBoolean(dr[dbUserEnity.FirstName.ToString()]);
+                            objGroupList.groups.Add(objGroup);
+                        }
+                    }
+                }
+
+
+                return objGroupList;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
 
         public List<BankAccountEnity> GetUserBankAccount(String userId)
         {
